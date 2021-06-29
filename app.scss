@@ -1,0 +1,150 @@
+$colors: (
+  "background": #00d6d2,
+  "skin": #ffcda2,
+  "shirt": #4373df,
+  "hood": #fff,
+  "lines": #222,
+);
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f5fb;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: map-get($map: $colors, $key: "lines");
+}
+
+.finn {
+  &__container {
+    height: 400px;
+    width: 300px;
+    background: map-get($map: $colors, $key: "background");
+    position: relative;
+  }
+
+  &__head {
+    position: absolute;
+    height: 175px;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35px;
+  }
+
+  &__hood {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 160px;
+    width: 200px;
+    transform: translateX(-50%);
+    background: map-get($map: $colors, $key: "hood");
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      background: map-get($map: $colors, $key: "hood");
+      width: 40px;
+      height: 100px;
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__ear {
+    background: map-get($map: $colors, $key: "hood");
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &--right {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__face {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 155px;
+    border-radius: 50%;
+    background: map-get($map: $colors, $key: "skin");
+  }
+
+  &__eye {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 8px;
+    height: 8px;
+    background-color: map-get($map: $colors, $key: "lines");
+    border-radius: 50%;
+
+    &--right {
+      left: auto;
+      right: 30px;
+    }
+  }
+
+  &__smile {
+    position: absolute;
+    height: 20px;
+    width: 40px;
+    border: 4px solid transparent;
+    border-bottom-color: map-get($map: $colors, $key: "lines");
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+  }
+
+  &__hand {
+    background-color: map-get($map: $colors, $key: "skin");
+    width: 30px;
+    height: 85px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    &--right {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__shirt {
+    position: absolute;
+    bottom: 18px;
+    background-color: map-get($map: $colors, $key: "shirt");
+    height: 175px;
+    width: 235px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+}
